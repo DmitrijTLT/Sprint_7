@@ -7,6 +7,7 @@ import ru.yandex.practicum.orders.OrderListResponse;
 import ru.yandex.practicum.orders.OrdersCreate;
 import ru.yandex.practicum.orders.OrdersCreateResponse;
 import java.util.List;
+import static org.apache.http.HttpStatus.*;
 
 import static org.junit.Assert.*;
 
@@ -25,7 +26,7 @@ public class OrderSteps {
     }
 
     public OrderSteps checkOrderResponse() {
-        response.assertThat().statusCode(201);
+        response.assertThat().statusCode(SC_CREATED);
         OrdersCreateResponse ordersCreateResponseFromApi = response.extract().body().as(OrdersCreateResponse.class);
         assertNotNull("Ответ сервера должен содержать id", ordersCreateResponseFromApi.getTrack());
         assertTrue("id курьера должен быть положительным числом", ordersCreateResponseFromApi.getTrack() > 0);
@@ -33,7 +34,7 @@ public class OrderSteps {
     }
 
     public OrderSteps checkOrderListResponse(int expectedOrdersCount) {
-        response.assertThat().statusCode(200);
+        response.assertThat().statusCode(SC_OK);
         OrderListResponse orderListResponseFromApi = response.extract().body().as(OrderListResponse.class);
         assertNotNull("Массив 'orders' не должен быть пустым", orderListResponseFromApi.getOrders());
         assertNotNull("Объект 'pageInfo' не должен быть пустым", orderListResponseFromApi.getPageInfo());
@@ -48,7 +49,7 @@ public class OrderSteps {
     }
 
     public OrderSteps checkOrderListResponse() {
-        response.assertThat().statusCode(200);
+        response.assertThat().statusCode(SC_OK);
         OrderListResponse orderListResponseFromApi = response.extract().body().as(OrderListResponse.class);
         assertNotNull("Массив 'orders' не должен быть пустым", orderListResponseFromApi.getOrders());
         assertNotNull("Объект 'pageInfo' не должен быть пустым", orderListResponseFromApi.getPageInfo());

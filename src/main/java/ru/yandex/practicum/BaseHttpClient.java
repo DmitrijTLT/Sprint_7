@@ -42,25 +42,6 @@ public abstract class BaseHttpClient {
                 .thenReturn();
     }
 
-//    protected Response doGetRequest(String path, Integer courierId, List<String> nearestStation, Integer limit, Integer page) {
-//        RequestSpecification request = given().spec(baseRequestSpec());
-//
-//        if (courierId != null) {
-//            request.queryParam("courierId", courierId);
-//        }
-//        if (nearestStation != null) {
-//            request.queryParam("nearestStation", nearestStation);
-//        }
-//        if (limit != null) {
-//            request.queryParam("limit", limit);
-//        }
-//        if (page != null) {
-//            request.queryParam("page", page);
-//        }
-//
-//        return request.get(path).thenReturn();
-//    }
-
     protected Response doGetRequest(String path) {
         return given()
                 .spec(baseRequestSpec())

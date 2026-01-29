@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrdersCreateResponse {
-    private Integer track;
+public class AvailableStation {
+    private String name;
+    private String number;
+    private String color;
 }

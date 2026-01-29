@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.concurrent.ThreadLocalRandom;
 
 @RunWith(Parameterized.class)
+
 public class OrderCreateTest {
     private final String firstName;
     private final String lastName;
@@ -21,6 +22,7 @@ public class OrderCreateTest {
     private final String deliveryDate;
     private final String comment;
     private final String[] color;
+
 
     private OrderSteps steps = new OrderSteps();
 
@@ -52,6 +54,7 @@ public class OrderCreateTest {
         return Arrays.asList(new Object[][] {
                 { "Иван", "Иванов", "ул. Ленина, 1", "1", "+79991234567", 1, generateDeliveryDate(1, 5), "Коммент", new String[]{"BLACK"} },
                 { "Мария", "Петрова", "пр-т Ленина, 5", "2", "+79997654321", 2, generateDeliveryDate(3, 20), "Коммент", new String[]{"GREY"} },
+                { "Петр", "Петров", "пр-т Ленина, 15", "2", "+79997654321", 2, generateDeliveryDate(3, 20), "Коммент", new String[]{"GREY", "BLACK"} },
                 { "Алексей", "Сидоров", "пер. Зелёный, 3", "3", "+79990001122", 3, generateDeliveryDate(10, 30), "", new String[]{} }
         });
     }

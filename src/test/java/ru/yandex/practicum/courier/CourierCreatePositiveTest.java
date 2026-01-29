@@ -24,10 +24,10 @@ public class CourierCreatePositiveTest {
         // Получаем id курьера
         Login login = new Login(courierLogin, password);
         Integer courierId = steps.getLoginCourierResponse(login).checkGetLoginCourier();
-        String courierIdStr = String.valueOf(courierId);
+        String id = String.valueOf(courierId);
 
         // Удаляем курьера
-        CourierDeleteId courierDeleteId = new CourierDeleteId(courierIdStr);
+        CourierDeleteId courierDeleteId = new CourierDeleteId(id);
         steps.deleteCourierResponse(courierDeleteId, courierId).checkDeleteCourier();
     }
 }
